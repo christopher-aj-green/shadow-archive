@@ -1,9 +1,9 @@
 var YouTube = require('youtube-node');
 
-var youtube_key = process.env.YOUTUBE_KEY
+var youtube_key = process.env.YOUTUBE_KEY;
 
 module.exports = {
-    getYoutubeVideos: function (item, callback) {
+    getYoutubeVideos: function (item, key, callback) {
         var searchQuery = item.author + " " + item.plaintextTitle;
         var youTube = new YouTube();
         youTube.setKey(youtube_key);

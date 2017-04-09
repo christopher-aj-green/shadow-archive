@@ -45,10 +45,10 @@ var parseBlackhat09 = module.exports = {
                 }
 
             });
-            console.log("title", title);
-            console.log("description", description);
-            console.log("plaintextTitle", plaintextTitle);
-            console.log("material", material);
+            // console.log("title", title);
+            // console.log("description", description);
+            // console.log("plaintextTitle", plaintextTitle);
+            // console.log("material", material);
 
             items[title] = {};
             items[title].author = author;
@@ -64,7 +64,7 @@ var parseBlackhat09 = module.exports = {
         console.log($('.span-13').length);
         console.log($('.span-13').children().length);
 
-        async.each(items, parseYoutube.getYoutubeVideos, function (err) {
+        async.eachOfLimit(items, 20, parseYoutube.getYoutubeVideos, function (err) {
             if (err) {
                 console.log(err);
             } else {
